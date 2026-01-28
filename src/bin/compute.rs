@@ -1,5 +1,5 @@
 #![feature(duration_millis_float)]
-use std::{collections::HashMap, fs, io::{ErrorKind, Read, Write}};
+use std::{collections::HashMap, fs, io::{ErrorKind, Read, Write}, thread::sleep, time::Duration};
 use std::time::Instant;
 use std::net::{TcpListener, TcpStream};
 
@@ -41,8 +41,9 @@ fn _creator(size: (usize, usize)) -> (Lenia, u8) {
 
 fn main() {
     get_available_backends();
-    set_device(0);
+    set_device(1);
     info();
+    sleep(Duration::from_secs(3));
     
     let window_size: (usize, usize) = (1024, 1024 );
 
